@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="db" uuid="e816e4de-9bd5-4b62-aca0-7b5c8297dc1c">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:D:\BaiduSyncdisk\爬虫\scrapyy\gerapy\dbs\db.sqlite3</jdbc-url>
+    </data-source>
+  </component>
+</project>

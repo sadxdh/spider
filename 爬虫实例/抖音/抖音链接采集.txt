@@ -1,0 +1,119 @@
+http://v26-web.douyinvod.com/1227434b587944d890109e00751b4289/63ce4f62/video/tos/cn/tos-cn-ve-15/1abfd760dd1c42a1b3601aa6ff09455a/?a=6383&ch=10010&cr=3&dr=0&lr=all&cd=0%7C0%7C0%7C3&cv=1&br=1239&bt=1239&cs=0&ds=6&ft=OyFYlOZZI0Gr12NvE0aIZIxRmnke_q_45S2&mime_type=video_mp4&qs=0&rc=PDNkNzs0MzgzZztnNGU4OEBpM2dpaXk5NnV3NDMzZ2kzM0BhLTBiLjA2X2MxMDEzLi0tYSNzM3FtYG5fYGJgLS0uLTBzcw%3D%3D&l=202301211711476DC804E9887A3B3830FD&btag=10000
+
+http://v3-web.douyinvod.com/19e09be01b40c84c2aaff6dd60da6efb/63ce4f62/video/tos/cn/tos-cn-ve-15/1abfd760dd1c42a1b3601aa6ff09455a/?a=6383&ch=10010&cr=3&dr=0&lr=all&cd=0%7C0%7C0%7C3&cv=1&br=1239&bt=1239&cs=0&ds=6&ft=OyFYlOZZI0Gr12NvE0aIZIxRmnke_q_45S2&mime_type=video_mp4&qs=0&rc=PDNkNzs0MzgzZztnNGU4OEBpM2dpaXk5NnV3NDMzZ2kzM0BhLTBiLjA2X2MxMDEzLi0tYSNzM3FtYG5fYGJgLS0uLTBzcw%3D%3D&l=202301211711476DC804E9887A3B3830FD&btag=10000
+
+https://www.douyin.com/aweme/v1/play/?video_id=v0300f1d0000c1etcrb3q6cvpftf6dv0&line=0&file_id=05051b614d384df0b5903118e43a00d9&sign=e88bfe743c808ea24306e7cbc6d8be1e&is_play_url=1&source=PackSourceEnum_PUBLISH
+
+
+====url解码=========================================================================================
+http://v26-web.douyinvod.com/1227434b587944d890109e00751b4289/63ce4f62/video/tos/cn/tos-cn-ve-15/1abfd760dd1c42a1b3601aa6ff09455a/?a=6383&ch=10010&cr=3&dr=0&lr=all&cd=0|0|0|3&cv=1&br=1239&bt=1239&cs=0&ds=6&ft=OyFYlOZZI0Gr12NvE0aIZIxRmnke_q_45S2&mime_type=video_mp4&qs=0&rc=PDNkNzs0MzgzZztnNGU4OEBpM2dpaXk5NnV3NDMzZ2kzM0BhLTBiLjA2X2MxMDEzLi0tYSNzM3FtYG5fYGJgLS0uLTBzcw==&l=202301211711476DC804E9887A3B3830FD&btag=10000
+
+http://v3-web.douyinvod.com/19e09be01b40c84c2aaff6dd60da6efb/63ce4f62/video/tos/cn/tos-cn-ve-15/1abfd760dd1c42a1b3601aa6ff09455a/?a=6383&ch=10010&cr=3&dr=0&lr=all&cd=0|0|0|3&cv=1&br=1239&bt=1239&cs=0&ds=6&ft=OyFYlOZZI0Gr12NvE0aIZIxRmnke_q_45S2&mime_type=video_mp4&qs=0&rc=PDNkNzs0MzgzZztnNGU4OEBpM2dpaXk5NnV3NDMzZ2kzM0BhLTBiLjA2X2MxMDEzLi0tYSNzM3FtYG5fYGJgLS0uLTBzcw==&l=202301211711476DC804E9887A3B3830FD&btag=10000
+
+https://www.douyin.com/aweme/v1/play/?video_id=v0300f1d0000c1etcrb3q6cvpftf6dv0&line=0&file_id=05051b614d384df0b5903118e43a00d9&sign=e88bfe743c808ea24306e7cbc6d8be1e&is_play_url=1&source=PackSourceEnum_PUBLISH
+
+
+====必要参数保留=====================================================================================
+http://v26-web.douyinvod.com/1227434b587944d890109e00751b4289/63ce4f62/video/tos/cn/tos-cn-ve-15/1abfd760dd1c42a1b3601aa6ff09455a/
+http://v3-web.douyinvod.com/19e09be01b40c84c2aaff6dd60da6efb/63ce4f62/video/tos/cn/tos-cn-ve-15/1abfd760dd1c42a1b3601aa6ff09455a/
+https://www.douyin.com/aweme/v1/play/?video_id=v0300f1d0000c1etcrb3q6cvpftf6dv0
+
+
+====获取参数========================================================================================
+猜你想搜：https://www.douyin.com/aweme/v1/web/api/suggest_words/?business_id=30068
+抖音主页搜索框实时匹配菜单：https://www.douyin.com/aweme/v1/web/search/sug/?aid=6383&keyword=神奇的睿智少年（nickname）（uid=69618557589）
+搜索结果页面（ajax）：https://www.douyin.com/search/神奇的睿智少年
+=================================================================================================
+---如何获取博主主页链接？
+博主主页（ajax）：https://www.douyin.com/user/MS4wLjABAAAAmG1_zSDkWmDHmCjl75ovS_IWwjcCl3q712TpD1GSEvs（secUid）
+---博主主页->单视频详情页
+单视频详情页（有评论）：https://www.douyin.com/video/6943942030976437542(awemeId\groupId)
+=================================================================================================
+---单视频详情页->具体视频链接
+具体链接1：http://v26-web.douyinvod.com/1227434b587944d890109e00751b4289/63ce4f62/video/tos/cn/tos-cn-ve-15/1abfd760dd1c42a1b3601aa6ff09455a/
+具体链接2：http://v3-web.douyinvod.com/19e09be01b40c84c2aaff6dd60da6efb/63ce4f62/video/tos/cn/tos-cn-ve-15/1abfd760dd1c42a1b3601aa6ff09455a/
+具体链接3：https://www.douyin.com/aweme/v1/play/?video_id=v0300f1d0000c1etcrb3q6cvpftf6dv0
+具体链接4（带水印）：
+http://v26-web.douyinvod.com/990bd6764b5131d76e57c6db2d24a76d/63cf782e/video/cn/mps/logo/r/p/v0300f1d0000c1etcrb3q6cvpftf6dv0/ab3a94aa7e0041a5a6ba6349a547a9ed/mp4/main.mp4
+---单视频背景音乐链接
+https://sf86-cdn-tos.douyinstatic.com/obj/ies-music/6943942030805125919.mp3
+
+
+=======================================================================================================
+---ajax链接：
+*****************************
+原地址访问：返回：{}
+https://www.douyin.com/aweme/v1/web/aweme/post/?device_platform=webapp&aid=6383&channel=channel_pc_web&sec_user_id=MS4wLjABAAAAOrjRSnnedYmGC_mesXasJydda0Ii0zqWngigtYnbKf4&max_cursor=1649237263000&locate_item_id=7195382930179509537&locate_query=false&show_live_replay_strategy=1&count=10&publish_video_strategy_type=2&pc_client_type=1&version_code=170400&version_name=17.4.0&cookie_enabled=true&screen_width=1536&screen_height=864&browser_language=zh-CN&browser_platform=Win32&browser_name=Edge&browser_version=106.0.1370.42&browser_online=true&engine_name=Blink&engine_version=106.0.0.0&os_name=Windows&os_version=10&cpu_core_num=8&device_memory=8&platform=PC&downlink=10&effective_type=4g&round_trip_time=100&webid=7083719552220169766&msToken=QwOfJTxPAAivVLLRwGqMltzjx5gXlEqxFldTWWTc7tuLlhDBBDkBAdMalAoOFbmbda_NhX8wzZEtn2m9TDhXKi-McHkZPfIIku5UcUwumhNl18Z8lPZNrAQ=
+******************************
+https://www.douyin.com/aweme/v1/web/aweme/post/?aid=6383&count=10msToken=g7dRQc_pieKmEtQm6tCsmRw6GOivJqKQ0Fkago8q-w4-xnGEMixjM66KoCXPRfYNG0RCqusFi8GVcEX_EYEesHO391qPjR_FfLiQCLks5EcpdIjCtqXFzPc=
+返回：json数据，目标数据不足："aweme_list"：array【3】（简写）
+***************************************
+抓包记录
+msToken: kodrZN79XT0rbMnB3v9erjTsOx9VFipVuxrCwb2O2DbLoxRNzQSvRSZ7T3jLQ0_blMULBZc_FuaIRVZBsbAuBfYlrYEPMphd36L1Oghbu8APKn7SpVXU-RE=
+X-Bogus: DFSzsdVEhpJANrUIShAZbcppgimw
+msToken: kodrZN79XT0rbMnB3v9erjTsOx9VFipVuxrCwb2O2DbLoxRNzQSvRSZ7T3jLQ0_blMULBZc_FuaIRVZBsbAuBfYlrYEPMphd36L1Oghbu8APKn7SpVXU-RE=
+X-Bogus: DFSzsdVEgaiANrUIShAD/5ppgimV
+msToken: kodrZN79XT0rbMnB3v9erjTsOx9VFipVuxrCwb2O2DbLoxRNzQSvRSZ7T3jLQ0_blMULBZc_FuaIRVZBsbAuBfYlrYEPMphd36L1Oghbu8APKn7SpVXU-RE=
+X-Bogus: DFSzsdVEn4sANrUIShADJcppgizZ
+msToken: kodrZN79XT0rbMnB3v9erjTsOx9VFipVuxrCwb2O2DbLoxRNzQSvRSZ7T3jLQ0_blMULBZc_FuaIRVZBsbAuBfYlrYEPMphd36L1Oghbu8APKn7SpVXU-RE=
+X-Bogus: DFSzsdVEtWiANrUIShADPOppgimG
+---------------------
+发出report：https://mssdk.bytedance.com/web/report?&&
+msToken: kodrZN79XT0rbMnB3v9erjTsOx9VFipVuxrCwb2O2DbLoxRNzQSvRSZ7T3jLQ0_blMULBZc_FuaIRVZBsbAuBfYlrYEPMphd36L1Oghbu8APKn7SpVXU-RE=
+X-Bogus: DFSzsdVEMYHZgNUIShAkl5ppgiFi
+x-tt-timestamp: 1675838737.277
+report响应头
+x-ms-token: t4CxCyT9-fhnOBDkrhRZjBMoSJbiJXSXkmBo2uPvZyNuA-hrA2G5Yc1ywutwkXIjFHP5t6_zMWbJ922pq6XKF0-YZnyGCDcnQVIfb3pHTQhuEiyvLIYI9h0=
+----------------------
+msToken: t4CxCyT9-fhnOBDkrhRZjBMoSJbiJXSXkmBo2uPvZyNuA-hrA2G5Yc1ywutwkXIjFHP5t6_zMWbJ922pq6XKF0-YZnyGCDcnQVIfb3pHTQhuEiyvLIYI9h0=
+X-Bogus: DFSzsdVEZ5UANrUIShAkScppgiz7
+msToken: t4CxCyT9-fhnOBDkrhRZjBMoSJbiJXSXkmBo2uPvZyNuA-hrA2G5Yc1ywutwkXIjFHP5t6_zMWbJ922pq6XKF0-YZnyGCDcnQVIfb3pHTQhuEiyvLIYI9h0=
+X-Bogus: DFSzsdVEPBvANrUIShAkzOppgimh
+msToken: t4CxCyT9-fhnOBDkrhRZjBMoSJbiJXSXkmBo2uPvZyNuA-hrA2G5Yc1ywutwkXIjFHP5t6_zMWbJ922pq6XKF0-YZnyGCDcnQVIfb3pHTQhuEiyvLIYI9h0=
+X-Bogus: DFSzsdVEu4UANrUIShAkqOppgiz7
+msToken: t4CxCyT9-fhnOBDkrhRZjBMoSJbiJXSXkmBo2uPvZyNuA-hrA2G5Yc1ywutwkXIjFHP5t6_zMWbJ922pq6XKF0-YZnyGCDcnQVIfb3pHTQhuEiyvLIYI9h0=
+X-Bogus: DFSzsdVEKEvANrUIShAkqOppgim3
+msToken: t4CxCyT9-fhnOBDkrhRZjBMoSJbiJXSXkmBo2uPvZyNuA-hrA2G5Yc1ywutwkXIjFHP5t6_zMWbJ922pq6XKF0-YZnyGCDcnQVIfb3pHTQhuEiyvLIYI9h0=
+X-Bogus: DFSzsdVEoeUANrUIShAkq5ppgiF5
+-----------------------
+发出report：https://mssdk.bytedance.com/web/report?&&
+msToken: t4CxCyT9-fhnOBDkrhRZjBMoSJbiJXSXkmBo2uPvZyNuA-hrA2G5Yc1ywutwkXIjFHP5t6_zMWbJ922pq6XKF0-YZnyGCDcnQVIfb3pHTQhuEiyvLIYI9h0=
+X-Bogus: DFSzsdVEAGY7fpUIShAd65ppgiuP
+x-tt-timestamp: 1675839037.302
+report响应头
+x-ms-token: BVXCX5Od7pBh--V29snfV3pEuywO91-z0taHTwJzs6Aks7HK6T_IemsJwtGHeH539xC8yzZ7pYLj3oz4L-nkYp2GvGBxwTTcuH1_Hxm2gr8rwULKWC6EjzQ=
+-----------------------
+msToken: BVXCX5Od7pBh--V29snfV3pEuywO91-z0taHTwJzs6Aks7HK6T_IemsJwtGHeH539xC8yzZ7pYLj3oz4L-nkYp2GvGBxwTTcuH1_Hxm2gr8rwULKWC6EjzQ=
+X-Bogus: DFSzsdVEAYtANrUIShAp3Oppgimw
+-----------------------
+msToken: BVXCX5Od7pBh--V29snfV3pEuywO91-z0taHTwJzs6Aks7HK6T_IemsJwtGHeH539xC8yzZ7pYLj3oz4L-nkYp2GvGBxwTTcuH1_Hxm2gr8rwULKWC6EjzQ=
+X-Bogus: DFSzsdVEBWMXo3UIShApk5ppgizl
+x-tt-timestamp: 1675839337.250
+x-ms-token: g7dRQc_pieKmEtQm6tCsmRw6GOivJqKQ0Fkago8q-w4-xnGEMixjM66KoCXPRfYNG0RCqusFi8GVcEX_EYEesHO391qPjR_FfLiQCLks5EcpdIjCtqXFzPc=
+-------------------------
+https://www.douyin.com/aweme/v1/web/aweme/post/?device_platform=webapp&aid=6383&channel=channel_pc_web&sec_user_id=MS4wLjABAAAAOrjRSnnedYmGC_mesXasJydda0Ii0zqWngigtYnbKf4&max_cursor=1649237263000&locate_item_id=7195382930179509537&locate_query=false&show_live_replay_strategy=1&count=10&publish_video_strategy_type=2&pc_client_type=1&version_code=170400&version_name=17.4.0&cookie_enabled=true&screen_width=1536&screen_height=864&browser_language=zh-CN&browser_platform=Win32&browser_name=Edge&browser_version=106.0.1370.42&browser_online=true&engine_name=Blink&engine_version=106.0.0.0&os_name=Windows&os_version=10&cpu_core_num=8&device_memory=8&platform=PC&downlink=10&effective_type=4g&round_trip_time=100&webid=7083719552220169766&msToken=QwOfJTxPAAivVLLRwGqMltzjx5gXlEqxFldTWWTc7tuLlhDBBDkBAdMalAoOFbmbda_NhX8wzZEtn2m9TDhXKi-McHkZPfIIku5UcUwumhNl18Z8lPZNrAQ=&X-Bogus=DFSzsdVEQkGANrUIShA8PQppgimS
+******************************
+每隔300s发出一个post请求:更新msToken，即mstoken在5分钟内有效，X-Bogus由js生成
+https://mssdk.bytedance.com/web/report?
+msToken=BVXCX5Od7pBh--V29snfV3pEuywO91-z0taHTwJzs6Aks7HK6T_IemsJwtGHeH539xC8yzZ7pYLj3oz4L-nkYp2GvGBxwTTcuH1_Hxm2gr8rwULKWC6EjzQ=&
+X-Bogus=DFSzsdVEBWMXo3UIShApk5ppgizl
+******************************
+==========================================================================================
+图片集
+分享链接
+0.58 ZMJ:/ 信息要发给秒回的人，笑容要留给对你好的人。# 唯美古风壁纸 # AI绘画  https://v.douyin.com/BAkBfa6/ 复制此链接，打开Dou音搜索，直接观看视频！
+0.58 ZMJ:/ 信息要发给秒回的人，笑容要留给对你好的人。# 唯美古风壁纸 # AI绘画  https://v.douyin.com/BAkBfa6/ 复制此链接，打开Dou音搜索，直接观看视频！
+0.58 ZMJ:/ 信息要发给秒回的人，笑容要留给对你好的人。# 唯美古风壁纸 # AI绘画  https://v.douyin.com/BAkBfa6/ 复制此链接，打开Dou音搜索，直接观看视频！
+https://www.douyin.com/aweme/v1/web/shorten/?targets=https://www.iesdouyin.com/share/video/7196694069781794105/?region=CN&mid=7132541878072166434&u_code=1gia6dmc2c0l&did=MS4wLjABAAAAkPJt7mnRHQISXx3s0LzvkfuzdF9iWY_rQDxTHkFz3HP4vguQ3AxCpBAUrzGKquxw&iid=MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&with_sec_did=1&titleType=title&schema_type=37&from_ssr=1&from=web_code_link&belong=aweme&persist=1&device_platform=webapp&aid=6383&channel=channel_pc_web&pc_client_type=1&version_code=170400&version_name=17.4.0&cookie_enabled=true&screen_width=1536&screen_height=864&browser_language=zh-CN&browser_platform=Win32&browser_name=Edge&browser_version=106.0.1370.42&browser_online=true&engine_name=Blink&engine_version=106.0.0.0&os_name=Windows&os_version=10&cpu_core_num=8&device_memory=8&platform=PC&downlink=1.75&effective_type=4g&round_trip_time=100&webid=7083719552220169766&msToken=xrqp9j8aosM-nrt932tETGfmIZaBpG6t4_jgPtlrPpfzYvpirxtmJ_ZE64kbV0Bqk6NIhlnzEWcysnYQTcSHFwV520LncXmsFezr89RIdTTl8Mf2CkF32t77CgBQeVs-&X-Bogus=DFSzsdVubbsANVEhShv/t5ppgiu9
+
+https://p9-pc-sign.douyinpic.com/tos-cn-i-0813/56cd2c4fd5534df9844f60bcdc91de8e~q75.webp?x-expires=1678248000&
+x-signature=LW+sKU02V+iXWbL6O0ferg7cfXU=
+
+https://p6-pc-sign.douyinpic.com/tos-cn-i-0813c001/99aadcb0f7a748ca8a9dc3427440c3ac~q75.webp?x-expires=1678248000&
+x-signature=iPgWmlRIFmltCvCxlUoD1y4Qgps=
+
+https://p3-pc-sign.douyinpic.com/tos-cn-i-0813/bf1204ebbfbe4b238625b3890fe8e31a~q75.webp?x-expires=1678248000&
+x-signature=sDiCgzVpeSkzElymQkVAQoMZW20=
+
+=====================================================================================================
+https://cn.pornhub.com/view_video.php?viewkey=ph63b35d7c11ad7
