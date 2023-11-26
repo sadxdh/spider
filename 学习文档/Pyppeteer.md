@@ -29,27 +29,41 @@ async def main():
     browser = await launch()
     page = await browser.newPage()
     await page.goto(url)
-    
-    for lyear in range(2016, 2024):  # Loop through years from 2016 to 2023
-        for month in range(1, 13):
-            print(f'{lyear}-{month}')
-            await page.select('#year', f'{lyear}')
-            await page.select('#month', f'{month}')
-            
-            element = await page.waitForXPath('//*[@id="wrap"]/input')
-            box = await element.boundingBox()
-            target_x = box['x'] + box['width'] // 2
-            target_y = box['y'] + box['height'] // 2
-            await page.mouse.click(target_x, target_y)
-            
-            time.sleep(2)
-            html = await page.content()
-            with open(f'{lyear}-{month}.html', 'w', encoding='utf-8') as f:
-                f.write(html)
-    
+    html = await page.content()
+    with open(f'{lyear}-{month}.html', 'w', encoding='utf-8') as f:
+        f.write(html)
     await browser.close()
 
 asyncio.get_event_loop().run_until_complete(main())
 ```
 
 引自：http://test.blog2019.net:84/post/10
+
+## 下拉菜单选项
+
+```python
+await page.select('#year', f'{lyear}')
+```
+
+## 按钮点击操作
+
+```python
+element = await page.waitForXPath('//*[@id="wrap"]/input')
+box = await element.boundingBox()
+target_x = box['x'] + box['width'] // 2
+target_y = box['y'] + box['height'] // 2
+await page.mouse.click(target_x, target_y)
+```
+
+## 下滑操作
+
+```python
+await page.evaluate('window.scrollBy(0, window.innerHeight)')
+```
+
+## 手机模式
+
+```python
+await page.setViewport(viewport={"width": 475, "height": 867, "isMobile": True})
+```
+
