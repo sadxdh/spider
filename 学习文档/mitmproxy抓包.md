@@ -36,9 +36,6 @@ mitmproxy 官方脚本 demo：https://docs.mitmproxy.org/stable/addons-examples/
 
 - 即时生成SSL拦截证书
 
-  
-
-
 
 ## 四、下载win环境 mitmproxy安装包
 
