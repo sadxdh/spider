@@ -12,6 +12,66 @@
 
 **selenium教程**：[https://www.yiibai.com/selenium](https://link.zhihu.com/?target=https%3A//www.yiibai.com/selenium)
 
+## centos安装selenium+chromeium+chromedriver
+
+1. 安装selenium：这一步比较简单，直接`pip`安装就行：
+
+```shell
+pip install selenium
+```
+
+2. 安装chromium：由于谷歌chrome并不支持linux，也就更不支持centos了，所以需要安装chromium，不过不用担心，chromium也是谷歌的开源项目，与chrome并没有太大的区别
+
+```shell
+yum install chromium
+```
+
+3.检查chromium版本
+
+```shell
+yum list installed
+```
+
+![image-20231204092620546](pic/selenium%E6%A8%A1%E6%8B%9F%E6%B5%8F%E8%A7%88%E5%99%A8/image-20231204092620546.png)
+
+4.安装适应的chromedriver
+
+![image-20231204092703529](pic/selenium%E6%A8%A1%E6%8B%9F%E6%B5%8F%E8%A7%88%E5%99%A8/image-20231204092703529.png)
+
+5.测试脚本
+
+```python
+from selenium import webdriver   
+from selenium.webdriver.chrome.options import Options  # 导入浏览器内核设置，主要是为了设置无头（headless）模式
+url = 'www.baidu.com' 
+chrome_options = Options()    
+chrome_options.add_argument('--headless')  # 设置Chrome为无头模式    
+driver = webdriver.Chrome(options=chrome_options)    
+driver.get(url)    
+driver.close() 
+```
+
+可能报错
+
+![img](pic/selenium%E6%A8%A1%E6%8B%9F%E6%B5%8F%E8%A7%88%E5%99%A8/v2-8e25906e4aeea1dcfb0d1606b4ffa3bd_1440w.webp)
+
+添加
+
+```python
+chrome_options.add_argument('no-sandbox')    
+chrome_options.add_argument('disable-dev-shm-usage')
+```
+
+可能报错
+
+![image-20231204092913854](pic/selenium%E6%A8%A1%E6%8B%9F%E6%B5%8F%E8%A7%88%E5%99%A8/image-20231204092913854.png)
+
+修改url，加上https://
+
+```python
+url = 'https://www.baidu.com' 
+```
+
 ## 利用selenium+Chromedriver模拟操作
 
 ```python
