@@ -21,6 +21,7 @@ headers = {
 mobileEmulation = {"deviceMetrics": {"width": 375, "height": 667, "pixelRatio": 2.0},
                    "userAgent": "Mozilla/5.0 (Linux; U; Android 4.0.4; en-gb; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"}
 options = webdriver.ChromeOptions()
+options.binary_location = 'D:\\Program Files\\chrome-win64\\chrome.exe'
 options.add_experimental_option('mobileEmulation', mobileEmulation)
 options.add_argument('--disable-gpu')
 options.add_argument('--window-size=1280,1024')

@@ -79,9 +79,175 @@ SELECT * from app_info where appName LIKE '%/_%' ESCAPE '/';
 
 当然，下面我们就来看看MySQL的第二类模糊匹配方式 --- 内置函数查询
 
+## 数据去重
 
+在 MySQL 中，你可以使用 `DISTINCT` 关键字和 `GROUP BY` 语句来进行去重操作。如果你想根据 `K6` 和 `K7` 列进行去重，可以尝试以下 SQL 查询：
 
+```
+sqlCopy code
+SELECT DISTINCT K6, K7, * FROM your_table_name;
+```
 
+这将会选择唯一的 `K6` 和 `K7` 列的组合，并显示这些组合对应的完整行数据。`your_table_name` 是你实际的表名，替换为你所使用的表名。
+
+如果你只关心这两列的唯一组合而不需要其他列的数据，可以不使用 `*`，像这样：
+
+```
+sqlCopy code
+SELECT DISTINCT K6, K7 FROM your_table_name;
+```
+
+这样就会返回 `K6` 和 `K7` 列的唯一组合。
+
+记得备份数据或者在执行任何删除操作之前确认你的查询结果是符合预期的。
+
+```sql
+SELECT MAX(ID), K6, K7, * 
+FROM FROM sense_data.TB_REPORT where 1 = 1 and source_id = 390000028
+GROUP BY K6, K7;
+```
+
+## 【SQL】区间（条件）分组统计
+
+### 简介
+
+很多时候，我们都使用group by 进行分组，count(*)进行统计，两者结合可以进行聚合统计。
+
+假设我们有这样一张煤矿数据库表
+
+```text
+table name: coalmine
+columns: id(煤矿ID, bigint), prod_status(生产状态,varchar), prod_capacity(产能,decimal)
+```
+
+### 需求：统计各生产状态的煤矿数量
+
+学过SQL的人一眼就看出来，这是一个非常基础的问题。我们只需要按照prod_status进行分组进行聚合统计即可。大致可以写如下的sql：
+
+```text
+select prod_status as name, count(*) as num from coalmine group by name;
+```
+
+可以得到如下的输出：
+
+```text
+name | num
+停产  377
+停建  360
+关闭  31
+准备  1
+在建  89
+正在复产    3
+生产  463
+生产/在建   15
+生产/试运转  12
+试运转 1
+```
+
+非常完美，我们得到了我们想要的数据。
+
+但是现在有了新的需求：统计产能在30以下，30~90，90以上的煤矿数量有多少。现在我们遇到了难题，因为产能字段(prod_capacity)是一个数值，同时统计的依据是一个区间，我们不能单纯的将其作为group by的对象进行操作。
+
+```text
+select prod_capacity as name, count(*) as num from coalmine group by name;
+```
+
+这样做的结果，只是按数值进行分组统计。
+
+那么，该怎么办呢？
+
+### 区间统计（解法一）
+
+有点基础的读者不难看出，我们可以使用mysql关键字 **sum** 以及 **if** 进行操作，大致可以写出如下的SQL。
+
+```text
+select
+    sum(if(c.prod_capacity is null or c.prod_capacity < 30, 1, 0)) as less30,
+    sum(if(c.prod_capacity >= 30 and c.prod_capacity <= 90, 1, 0)) as between39,
+    sum(if(c.prod_capacity > 90, 1 , 0)) as gather90
+from coalmine c inner join enterprise e on c.enterprise_id = e.id;
+```
+
+> c.prod_capacity is null 可以认为prod_capacity字段为空时，认为煤矿的产能低于30.
+
+**sum** 以及 **if** 的使用方法可参阅网上教程。执行完毕后，我们可以得到如下的结果：
+
+```text
+less30 | between39 | than90
+ 1033   330          25
+```
+
+看起来似乎很美好，只不过没有使用分组排序稍有欠缺，导致最终结果是以一行的方式呈现，这回导致我们在应用程序里面进行实体映射（例如mybatis）时，只能使用扁平结构进行对应（例如Map），这和统一的分组映射实体出现矛盾。当然对于解决问题的结果来说这是无伤大雅的，最终我们还会讲最完美的解法，在此之前，我们先看另一种解决方案。
+
+### 区间统计（解法二）
+
+mysql有众多函数可以帮助我们完成各种各样的任务，只要我们仔细研究，很多冗余的SQL可以简化的漂亮，关于区间统计，其实还有专门的处理函数，他们分别是 `interval` 以及 `ele`。我们来看看他们的用法：
+
+```text
+INTERVAL(N,N1,N2,N3,...) INTERVAL()函数进行比较列表(N1，N2，N3等等)中的N值。该函数如果N<N1返回0，如果N<N2返回1，如果N<N3返回2 等等。如果N为NULL，它将返回-1。列表值必须是N1<N2<N3的形式才能正常工作。
+
+ELT(N,str1,str2,str3,...) 如果N= 1，返回str1，如果N= 2，返回str2，等等。如果N小于1或大于参数个数，返回NULL。ELT()是FIELD()反运算。
+```
+
+基于此，我们可以写出更漂亮的SQL
+
+```text
+select elt(interval(c.prod_capacity,0,30,90, 100000), 'less30', 'between39', 'than90') as name, count(*)
+from coalmine c group by name;
+```
+
+但显然，查询的结果受限非常之大，interval是半区间方式，（即大于等于前者小于后者），这样会导致运用场景非常之有限。当然可以通过其他方式进行优化，但是已经如使用sum、if方式来得方便灵活。
+
+但前者也有问题，就是查询的结果并不是多条记录展示，这样在很多业务系统中，进行bean映射的时候，只能采取hashmap方式进行结果映射。显然其原理还是分组统计，我们希望结果是以多行的形式展示。那么，该如何办到呢？
+
+### 区间统计（解法三）
+
+可以看到，既然分组的逻辑是一种`if else`形式的，我们可不可以在mysql里找到这种逻辑的关键字呢？显然是有的，那便是 `case`语句。以下是其官方文档:
+
+```text
+Syntax:
+
+CASE value WHEN [compare_value] THEN result 
+[WHEN [compare_value] THEN result ...] 
+[ELSE result] 
+END
+
+或者
+
+CASE WHEN [condition] THEN result 
+[WHEN [condition] 
+THEN result ...] 
+[ELSE result] 
+END
+```
+
+金风玉露一相逢，这便是我们要的东西，仔细琢磨一番，可以写出如下的SQL
+
+```text
+select 
+    case 
+      when c.prod_capacity is null or c.prod_capacity < 30 then 'less30' 
+      when c.prod_capacity >= 30 and c.prod_capacity <=90 then 'less39'
+      when c.prod_capacity > 90 then 'than90'
+    end 
+    as name, 
+    count(*) as num
+from coalmine c
+group by name;
+```
+
+返回结果如下所示：
+
+```text
+name | num
+less30  1033
+less39  330
+than90  25
+```
+
+### 结语
+
+可以看到，使用case关键字不仅得到了我们想要的结果形式，同时他提供了更灵活的处理逻辑，不论是区间分组亦或是其他的非正常方式，我们都可以定义自己的处理逻辑，将业务上需要归为一组的数据输出(then)为同样的值，然后进行分组。
 
 
 

@@ -12,7 +12,9 @@
 
 **selenium教程**：[https://www.yiibai.com/selenium](https://link.zhihu.com/?target=https%3A//www.yiibai.com/selenium)
 
-## centos安装selenium+chromeium+chromedriver
+## centos安装
+
+### selenium+chromeium+chromedriver
 
 1. 安装selenium：这一步比较简单，直接`pip`安装就行：
 
@@ -72,7 +74,19 @@ chrome_options.add_argument('disable-dev-shm-usage')
 url = 'https://www.baidu.com' 
 ```
 
-## 利用selenium+Chromedriver模拟操作
+## xpath提取元素
+
+```python
+a_href = driver.find_elements(By.XPATH,'//*[@id="r_con"]/table/tbody/tr[2]/td[2]/table/tbody/tr/td/a/@href')
+```
+
+```python
+# selenium元素
+a.text # 获取标签内容
+a.get_attribute("href") # 获取标签属性@href
+```
+
+## 案例
 
 ```python
 from selenium import webdriver # 从selenium导入webdriver
@@ -102,13 +116,24 @@ driver.quit()#退出
 ## 常用方法
 
 1. find_elements_by_id # ID
+
 2. find_elements_by_class_name # class
+
 3. find_elements_by_tag_name # 标签名
+
 4. find_elements_by_name # name
+
 5. find_elements_by_link_text # a标签中的text查找（精确匹配）
+
 6. find_elements_by_partial_link_text #a标签中的text查找（部分匹配即可）
+
 7. find_elements_by_css_selector # css选择器查找
+
 8. find_elements_by_xpath # **find_elements_by_xpath("//input")**
+
+9. .text提取文本.get_attribute('href')提取href属性
+
+10. .send_keys(str(p + 1),Keys.ENTER)输入并回车
 
 ## 自动下拉操作
 
@@ -159,8 +184,68 @@ driver.execute_script(js)
 time.sleep(3)  
 ```
 
-
-
 ## 小结
 
 本文只是对selenium+webdriver爬虫做了一个简单的介绍及应用，起到一个抛砖引玉的作用，要想利用好这个工具还需要后期查看更多的资料进行补充学习，上面介绍的**Chromedriver爬虫效率还很低**，后期可以使用**Chrome的无头浏览器模式**即**headless模式**，设置**无图属性**不用加载图片等方法，提升selenium模拟浏览器爬虫效率。
+
+## 无头模式抓不到数据
+
+假设我们要从一个网页上获取特定元素的文本信息，但在无头模式下无法成功获取数据。
+
+```python
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+# 使用Chrome无头模式
+options = Options()
+options.add_argument("--headless")
+driver = webdriver.Chrome(options=options)
+
+# 打开网页
+driver.get("https://example.com")
+
+# 尝试获取元素文本
+element = driver.find_element_by_xpath("//div[@class='example']")
+print(element.text)
+
+# 关闭浏览器
+driver.quit()
+```
+
+如果在这个例子中遇到问题，可以尝试以下解决方法：
+
+1. **显式等待**：使用WebDriverWait来等待元素加载完成再进行操作，以增加稳定性。
+
+   ```python
+   from selenium.webdriver.common.by import By
+   from selenium.webdriver.support.ui import WebDriverWait
+   from selenium.webdriver.support import expected_conditions as EC
+   
+   # 等待元素加载
+   element = WebDriverWait(driver, 10).until(
+       EC.presence_of_element_located((By.XPATH, "//div[@class='example']"))
+   )
+   print(element.text)
+   ```
+
+2. **模拟真实浏览器环境**：设置用户代理等参数以更接近真实浏览器的行为。
+
+   ```python
+   pythonCopy code
+   options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36")
+   ```
+
+3. **调试工具**：使用Chrome开发者工具等分析网页加载过程，检查元素是否正确加载。
+
+4. **更改抓取策略**：如果无法直接从页面获取数据，考虑尝试寻找是否存在API或其他数据源进行数据获取。
+
+记住，这只是一些可能的解决方案。对于不同的网站和情况，可能需要尝试不同的方法来成功在无头模式下抓取数据。
+
+## quit和close的区别
+
+在Selenium中，`quit()`和`close()`都是用于关闭WebDriver的方法，但是有一些细微的区别：
+
+- **`quit()`**：这个方法会关闭所有相关的浏览器窗口，并且结束WebDriver的进程。它会清理所有WebDriver打开的所有窗口、选项卡和对应的进程，释放相关的资源。通常来说，推荐在测试结束后使用`quit()`来彻底关闭WebDriver，确保资源得到释放。
+- **`close()`**：这个方法用于关闭当前的浏览器窗口或选项卡，但是不会关闭WebDriver的进程。如果当前WebDriver只打开了一个窗口或选项卡，使用`close()`会关闭它，但如果WebDriver打开了多个窗口或选项卡，`close()`只会关闭当前所在的窗口或选项卡，WebDriver的其他窗口仍然保持打开状态。在这种情况下，WebDriver的进程仍然在运行。
+
+因此，如果你想关闭整个WebDriver并释放所有相关资源，使用`quit()`是更好的选择。如果只是想关闭当前窗口或选项卡而保持WebDriver进程运行，可以使用`close()`方法。

@@ -25,3 +25,11 @@ except Exception as e:
 ```
 
 这里通过指定 `Content-Type` 头部为 `text/html; charset=utf-8` 来确保服务器能够正确解析 UTF-8 编码的内容。同时，在发送请求时使用了 `binary_data`，这是通过 `html.encode('utf-8')` 得到的 UTF-8 编码后的数据。
+
+## 返回json不是utf-8编码，无法解析
+
+```
+ERROR Expecting value: line 1 column 1 (char 0)
+```
+
+查看是否获取到数据，再添加response.encoding

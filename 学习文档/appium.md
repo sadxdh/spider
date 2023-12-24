@@ -41,5 +41,32 @@ appium --base-path /wd/hub
 // path "D:\Downloads\aweme_aweGW_v1015_270801_2fbe_1700577420.apk"
 ```
 
+## adbshell控制手机命令
 
+```shell
+pm list packages | grep chrome
+# package:com.android.chrome
+cmd package resolve-activity --brief com.android.chrome | tail -n 1
+# com.android.chrome/com.google.android.apps.chrome.Main
+am start -n com.android.chrome/com.google.android.apps.chrome.Main -d https://www.tinghaolook.com/book/258018574614597/258018579501126.html
+```
+
+
+
+```
+# 替换 "YOUR_URL_HERE" 为你想要访问的网址
+your_url="YOUR_URL_HERE"
+
+package_name=$(adb shell 'pm list packages | grep -i chrome' | cut -d ":" -f 2)
+activity_name=$(adb shell 'cmd package resolve-activity --brief '"$package_name"' | tail -n 1')
+
+adb shell "am start -n '"$package_name/$activity_name"' -d '"$your_url"'"
+sleep 5 # 等待页面加载
+
+# 使用 content_shell.dumper.dump() 命令获取渲染后的网页源码
+adb shell "echo 'content_shell.dumper.dump()' | run-as '"$package_name"' /system/bin/sh -c '/data/local/tmp/chrome-command-line -t about:blank --dump-dom'"
+
+```
+
+adb shell pm list packages
 
