@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/js逆向/挺好net/1.txt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/scrapyy/douguo/douguo/__init__.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/scrapyy/douguo/douguo/items.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/scrapyy/douguo/douguo/middlewares.py" charset="UTF-8" />
