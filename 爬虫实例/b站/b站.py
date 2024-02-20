@@ -8,11 +8,12 @@ import subprocess
 
 
 def get_resp(url):
+    print(url)
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36 Edg/100.0.1185.29',
         'referer': 'https://www.bilibili.com/'
     }
-    resp = requests.get(url, headers=headers)
+    resp = requests.get(url, headers=headers, timeout=120)
     # print(resp.text)
     return resp
 
@@ -26,7 +27,7 @@ def get_video_info(html_url):
     html_data = re.findall('<script>window.__playinfo__=(.*?)</script>', resp.text)[0]
     json_data = json.loads(html_data)
     # print(json_data)
-    # pprint.pprint(json_data)
+    pprint.pprint(json_data)
     audio_url = json_data['data']['dash']['audio'][0]['baseUrl']
     video_url = json_data['data']['dash']['video'][0]['baseUrl']
     video_info = [title, audio_url, video_url]
@@ -46,15 +47,18 @@ def save(title, audio_url, video_url):
 
 def merge_data(video_name):
     print('开始拼接', video_name)
-    COMMAND = f'E:\\BaiduSyncdisk\\爬虫\\爬虫实例\\b站\\ffmpeg-master-latest-win64-gpl-shared\\bin\\ffmpeg.exe -i {video_name}.mp4 -i {video_name}.mp3 -c:v copy -c:a aac -strict experimental {video_name}output.mp4'
+    COMMAND = f'C:\\Users\\24613\\PycharmProjects\\spider\\爬虫实例\\b站\\ffmpeg-master-latest-win64-gpl-shared\\bin\\ffmpeg.exe -i {video_name}.mp4 -i {video_name}.mp3 -c:v copy -c:a aac -strict experimental {video_name}output.mp4'
     subprocess.run(COMMAND, shell=True)
     print('拼接完成', video_name)
 
 
-url = 'https://www.bilibili.com/video/BV1iD4y1w7VR'
-video_info = get_video_info(url)
-save(video_info[0], video_info[1], video_info[2])
-merge_data(video_info[0])
-os.remove(video_info[0]+'.mp3')
-os.remove(video_info[0]+'.mp4')
-shutil.move(video_info[0]+'output.mp4', f'./b站视频/{video_info[0]}.mp4')
+if __name__ == '__main__':
+    url_list = [f'https://www.bilibili.com/video/BV1e7421K7HF?p={p}' for p in range(18,28)]
+    for url in url_list:
+        video_info = get_video_info(url)
+        save(video_info[0], video_info[1], video_info[2])
+        merge_data(video_info[0])
+        os.remove(video_info[0]+'.mp3')
+        os.remove(video_info[0]+'.mp4')
+        # shutil.move(video_info[0]+'output.mp4', f'./b站视频/{video_info[0]}.mp4')
+        shutil.move(video_info[0]+'output.mp4', f'./SD保姆级教程/{video_info[0]}.mp4')
