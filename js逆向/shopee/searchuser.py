@@ -1,3 +1,5 @@
+import time
+
 import requests
 
 cookies = {
@@ -28,13 +30,12 @@ cookies = {
     'SPC_R_T_IV': 'Z2cwZDB2RjREVEhTbVVPQw==',
     'SPC_T_ID': 'pXkCj6Ym6jkz2EleFIe106ZvzGXixTbTItsnU4vLCOVT396o9mDKSxkAxagwgiahb7Y5Ig1B6/KREjVJTYBRTGscgZfhTOBohMyEBEr2mjiuigl6bxhjW/NWYmIF11gkbRBFNY2mERqiFgydcRAq5U8A9lN8Dgm5IpRfRtn050A=',
     'SPC_T_IV': 'Z2cwZDB2RjREVEhTbVVPQw==',
-    'shopee_webUnique_ccd': '5H9OkQgjY3yvReg7c5pw0A%3D%3D%7CXUXAcne1%2BlKsZKXAH0G3O2SMtQFjFH1c6Ubm45Pi2%2F1vvGFX83BgfaQJBGublcGhqqgsyGnTAWgqUVg%3D%7CFtcCUukpQ2CYPAzr%7C08%7C3',
-    'ds': '959506f33cc490a43bab62f5461fb686',
-    '_ga_E1H7XE0312': 'GS1.1.1708432452.1.1.1708432543.40.0.0',
-    'AMP_TOKEN': '%24ERROR',
+    'shopee_webUnique_ccd': '5H9OkQgjY3yvReg7c5pw0A%3D%3D%7CXUXAcne1%2BlKsZKXAH0G3O2SMtQFjFH1c6Ubm45Pi2%2F1vvGFX83BgfaQJBGublcGhqqgsyGnTAWgqUVg%3D%7CFtcCUukpQ2CYPAzr%7C08%7C3',  # 更新
+    'ds': '959506f33cc490a43bab62f5461fb686',  # 更新
+    '_ga_E1H7XE0312': f'GS1.1.1708432452.1.1.{round(time.time())}.40.0.0',  # 更新
+    'AMP_TOKEN': '%24ERROR',  # 新增
     '_ga': 'GA1.2.1090874408.1708432453',
     '_gid': 'GA1.2.1502696319.1708432556',
-    '_dc_gtm_UA-61915057-6': '1',
 }
 
 headers = {
@@ -77,4 +78,4 @@ response = requests.get('https://shopee.tw/api/v4/search/search_user', params=pa
 
 # print(response.json())
 print(response.status_code)
-print(response.json())
+print(response.cookies.get_dict())

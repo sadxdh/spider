@@ -36,3 +36,4 @@ response = requests.get('https://push2ex.eastmoney.com/getTopicZTPool', params=p
 
 print(response.status_code)
 print(response.text)
+# print(response.cookies.get_dict())
