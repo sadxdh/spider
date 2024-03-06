@@ -22,8 +22,6 @@ mitmproxy 官方文档：https://docs.mitmproxy.org/stable/
 
 mitmproxy 官方脚本 demo：https://docs.mitmproxy.org/stable/addons-examples/
 
-
-
 ## 三、mitmproxy的特点
 
 - 快速拦截和修改HTTP流量

@@ -141,3 +141,14 @@ chrome-headless-shell	win32	https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-
 chrome-headless-shell	win64	https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/119.0.6005.0/win64/chrome-headless-shell-win64.zip	200
 ```
 
+## 安装最新的版本并配置
+
+[谷歌浏览器各平台各版本资源 chrome及驱动在linux中的离线安装 - cknds - 博客园 (cnblogs.com)](https://www.cnblogs.com/yoyowin/p/12014014.html)
+
+```bash
+yum install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+google-chrome -version
+wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/119.0.6045.105/linux64/chromedriver-linux64.zip
+unzip chromedriver-linux64.zip
+sudo mv chromedriver-linux64/chromedriver /usr/bin/
+```
